@@ -97,7 +97,7 @@ namespace server
         }
 
         private class ChartData {
-            public DateTimeOffset Time { get; set; }
+            public string Time { get; set; }
             public double Temperature { get; set; }
         }
 
@@ -110,7 +110,11 @@ namespace server
                 var tableClient = new TableClient(new Uri(TABLE_URL), TABLE_NAME, new TableSharedKeyCredential(TABLE_ACCOUNT_NAME, TABLE_ACCOUNT_KEY));
                 var queryResult = tableClient.Query<TemperatureRecord>(filter: $"PartitionKey eq '{date}'").ToList();
 
-                var chartData = queryResult.Select(x => new ChartData() { Time = x.TemperatureTimeStamp, Temperature = x.Temperature}).OrderBy(x => x.Time);
+                //var chartData = queryResult.Select(x => new ChartData() { Time = x.TemperatureTimeStamp, Temperature = x.Temperature}).OrderBy(x => x.Time);
+
+                var chartData = queryResult.GroupBy(x => x.TemperatureTimeStamp.Hour)
+                .Select(z => new ChartData() { Temperature = Math.Round(z.Average(s => s.Temperature), 1), Time = $"{z.First().TemperatureTimeStamp.Hour}:00" })
+                .ToList();
 
                 return new OkObjectResult(chartData);
             }
