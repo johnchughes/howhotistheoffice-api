@@ -15,7 +15,7 @@ namespace server
 {
     public class TemperatureFunctions
     {
-        private const string TABLE_NAME = "temp";
+        private const string TABLE_NAME = "temperaturelog";
         private readonly string LATEST_PARTITION = "latest";
         private readonly string LATEST_ROWKEY = "now";
         private string TABLE_URL;
