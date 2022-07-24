@@ -13,7 +13,7 @@ using System.Linq;
 
 namespace server
 {
-    public class temps
+    public class TemperatureFunctions
     {
         private const string TABLE_NAME = "temp";
         private readonly string LATEST_PARTITION = "latest";
@@ -22,7 +22,7 @@ namespace server
 
         IApplicationSettings appSettings = new ApplicationSettings();
 
-        public temps() {
+        public TemperatureFunctions() {
             TABLE_URL = string.Format(appSettings.TABLE_URL_FORMAT, appSettings.STORAGE_ACCOUNT_NAME, TABLE_NAME);
         }
 
