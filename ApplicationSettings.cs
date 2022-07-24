@@ -20,9 +20,8 @@ namespace server
         public string TABLE_URL_FORMAT {get; private set;}
 
         public ApplicationSettings(){
-            //TODO: Load from host.settings.json and get settings deployed to function app.
-            STORAGE_ACCOUNT_KEY = "crtflSMKFnKWIhJglDTq3e/HUCvezkUFD/zyYiAwoNY5PH8XgsF0c9Wvogfec1c55NXMLmi2HCPo+AStMHQyHg==";
-            STORAGE_ACCOUNT_NAME = "fntemps";
+            STORAGE_ACCOUNT_KEY = Environment.GetEnvironmentVariable("STORAGE_ACCOUNT_KEY");
+            STORAGE_ACCOUNT_NAME = Environment.GetEnvironmentVariable("STORAGE_ACCOUNT_NAME");
             TABLE_URL_FORMAT = "https://{0}.table.core.windows.net/{1}";
         }
 
