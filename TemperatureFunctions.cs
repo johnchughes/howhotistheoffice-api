@@ -33,8 +33,16 @@ namespace howhotistheoffice
             ILogger log)
         {
             log.LogInformation("C# HTTP trigger function processed a request.");
+            try {
+                
             var current = GetLatest();
             return new OkObjectResult(current);
+            
+            }
+            catch(Exception e) {
+                log.LogError(e, e.Message);
+                return new BadRequestObjectResult(e);
+            }
         }
 
         [FunctionName("CreateLatest")]
