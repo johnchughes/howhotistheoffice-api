@@ -20,9 +20,10 @@ namespace server
         private readonly string LATEST_ROWKEY = "now";
         private readonly string TABLE_URL;
 
-        IApplicationSettings appSettings = new ApplicationSettings();
+        IApplicationSettings appSettings;
 
-        public TemperatureFunctions() {
+        public TemperatureFunctions(IApplicationSettings appSettings) {
+            this.appSettings = appSettings;
             TABLE_URL = string.Format(appSettings.TABLE_URL_FORMAT, appSettings.STORAGE_ACCOUNT_NAME, TABLE_NAME);
         }
 
