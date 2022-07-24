@@ -22,7 +22,7 @@ namespace howhotistheoffice
         public ApplicationSettings(){
             STORAGE_ACCOUNT_KEY = Environment.GetEnvironmentVariable("STORAGE_ACCOUNT_KEY");
             STORAGE_ACCOUNT_NAME = Environment.GetEnvironmentVariable("STORAGE_ACCOUNT_NAME");
-            TABLE_URL_FORMAT = "https://{0}.table.core.windows.net/{1}";
+            TABLE_URL_FORMAT = @"https://{0}.table.core.windows.net/{1}";
         }
 
  
