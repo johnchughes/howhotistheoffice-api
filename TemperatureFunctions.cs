@@ -11,7 +11,7 @@ using Azure.Data.Tables;
 using Azure;
 using System.Linq;
 
-namespace server
+namespace howhotistheoffice
 {
     public class TemperatureFunctions
     {
