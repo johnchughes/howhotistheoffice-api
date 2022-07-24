@@ -11,7 +11,7 @@ using Azure.Data.Tables;
 using Azure;
 using System.Linq;
 
-namespace howhotistheoffice
+namespace server
 {
     public class TemperatureFunctions
     {
@@ -28,7 +28,7 @@ namespace howhotistheoffice
         }
 
         [FunctionName("temps")]
-        public async Task<IActionResult> Run(
+        public IActionResult Run(
             [HttpTrigger(AuthorizationLevel.Function, "get", Route = null)] HttpRequest req,
             ILogger log)
         {
@@ -96,7 +96,7 @@ namespace howhotistheoffice
         }
 
         [FunctionName("TempsForDay")]
-        public async Task<IActionResult> GetTempsForDay( [HttpTrigger(AuthorizationLevel.Function, "get", Route = null)] HttpRequest req,
+        public IActionResult GetTempsForDay( [HttpTrigger(AuthorizationLevel.Function, "get", Route = null)] HttpRequest req,
             ILogger log)
             {
                 string date = req.Query["date"];

@@ -2,8 +2,8 @@ using Microsoft.Azure.Functions.Extensions.DependencyInjection;
 using Microsoft.Extensions.DependencyInjection;
 
 //[assembly: FunctionsStartup(typeof(MyNamespace.Startup))]
-[assembly: FunctionsStartup(typeof(howhotistheoffice.Startup))]
-namespace howhotistheoffice
+[assembly: FunctionsStartup(typeof(server.Startup))]
+namespace server
 {
     public class Startup : FunctionsStartup
     {
