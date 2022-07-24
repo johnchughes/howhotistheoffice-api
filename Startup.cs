@@ -9,7 +9,7 @@ namespace howhotistheoffice
     {
         public override void Configure(IFunctionsHostBuilder builder)
         {
-            builder.Services.AddSingleton<IApplicationSettings, ApplicationSettings>();
+            builder.Services.AddTransient<IApplicationSettings, ApplicationSettings>();
 
         }
     }

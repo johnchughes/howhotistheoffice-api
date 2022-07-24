@@ -18,7 +18,7 @@ namespace howhotistheoffice
         private const string TABLE_NAME = "temp";
         private readonly string LATEST_PARTITION = "latest";
         private readonly string LATEST_ROWKEY = "now";
-        private readonly string TABLE_URL;
+        private string TABLE_URL;
 
         IApplicationSettings appSettings;
 
